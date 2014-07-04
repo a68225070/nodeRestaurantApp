@@ -10,7 +10,7 @@ router.get('/', function(req, res){
     rests.find({}, function (err, docs) {
         if(docs) {
             //console.log(docs);
-            res.render('test', {data: docs});
+            res.render('restMenu', {data: docs});
         }
     });
 
