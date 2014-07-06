@@ -2,9 +2,9 @@
      Begin Restaurant 1
 .col-md-offset-6.column
     h3#nameDiv(style='display: none;')
-    #menuItemsrest1.menu(style='display: none;')
+    #menuItemsrest1.menu()
         ul#checkboxes.list-group.list-unstyled
-            gets menu items for each resturant
+          //  gets menu items for each resturant
                 block content
 
                     if d.name == name

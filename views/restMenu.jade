@@ -8,20 +8,9 @@ include vote
             //each loop to iterate through resturant list
             //each d in data
             //    li.restaurant.list-group-item.scaled=d.name
+            each item in ['in-n-out', 'Daily Bagel Cafe', 'Teo Chow Noodles', 'De Afghanan Cuisine', 'Aniki\'s Sushi', 'Togo\'s', 'UnaMas!', 'Five Guys']
+                    li= item
 
-            li#rest1.restaurant.list-group-item.scaled
-                | In-n-Out
-            li#rest2.restaurant.list-group-item.scaled
-                | Daily Bagel Cafe
-            li#rest3.restaurant.list-group-item.scaled
-                | Teo Chow Noodles
-            li#rest4.restaurant.list-group-item.scaled
-                | De Afghanan Cuisine
-            li#rest5.restaurant.list-group-item.scaled
-                | Aniki's Sushi
-            li#rest6.restaurant.list-group-item.scaled
-                | Togo's
-            li#rest7.restaurant.list-group-item.scaled
-                | UnaMas!
-            li#rest8.restaurant.list-group-item.scaled
-                | Five Guys
+include restMenuItems
+
+include footer
