@@ -1,9 +1,27 @@
+include userNavbar
+include vote
 .row.clearfix
     .col-md-6.column
         h3
             strong Restaurants
         ul.list-unstyled.list-group
             //each loop to iterate through resturant list
-            each d in data
-                li.restaurant.list-group-item.scaled=d.name
+            //each d in data
+            //    li.restaurant.list-group-item.scaled=d.name
 
+            li#rest1.restaurant.list-group-item.scaled
+                | In-n-Out
+            li#rest2.restaurant.list-group-item.scaled
+                | Daily Bagel Cafe
+            li#rest3.restaurant.list-group-item.scaled
+                | Teo Chow Noodles
+            li#rest4.restaurant.list-group-item.scaled
+                | De Afghanan Cuisine
+            li#rest5.restaurant.list-group-item.scaled
+                | Aniki's Sushi
+            li#rest6.restaurant.list-group-item.scaled
+                | Togo's
+            li#rest7.restaurant.list-group-item.scaled
+                | UnaMas!
+            li#rest8.restaurant.list-group-item.scaled
+                | Five Guys
