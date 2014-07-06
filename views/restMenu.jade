@@ -1,3 +1,4 @@
+include layout
 include userNavbar
 include vote
 .row.clearfix
@@ -6,10 +7,8 @@ include vote
             strong Restaurants
         ul.list-unstyled.list-group
             //each loop to iterate through resturant list
-            //each d in data
-            //    li.restaurant.list-group-item.scaled=d.name
-            each item in ['in-n-out', 'Daily Bagel Cafe', 'Teo Chow Noodles', 'De Afghanan Cuisine', 'Aniki\'s Sushi', 'Togo\'s', 'UnaMas!', 'Five Guys']
-                    li= item
+            each d in data
+                li.restaurant.list-group-item.scaled=d.name
 
 include restMenuItems
 
