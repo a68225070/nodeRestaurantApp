@@ -1,0 +1,15 @@
+include layout
+include userNavbar
+include vote
+.row.clearfix
+    .col-md-6.column
+        h3
+            strong Restaurants
+        ul.list-unstyled.list-group
+            //each loop to iterate through resturant list
+            each d in data
+                li.restaurant.list-group-item.scaled=d.name
+
+include restMenuItems
+
+include footer
