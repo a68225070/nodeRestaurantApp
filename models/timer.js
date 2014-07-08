@@ -13,4 +13,4 @@ var timerSchema = new Schema({
 });
 
 exports.model = mongoose.model('timer', timerSchema);
-mongoose.connect('mongodb://localhost:27017/timer');
+mongoose.connect('mongodb://localhost:27017/restaurants');
