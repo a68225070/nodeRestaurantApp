@@ -10,9 +10,10 @@ $( document ).ready(function() {
         vote = selected.text();
         selected.css('background-color', '#3fb618')
     });
-
     $('#submitButton').on('click', function(){
-
+        var name = $('#restaurant-name').text();
+        console.log(name);
+        $('#submitButton').addClass('disabled');
     });
 
     var clock = new FlipClock($('.your-clock'), {
