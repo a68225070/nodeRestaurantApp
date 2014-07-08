@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var model = require('../models/restaurants.js');
-var rests = model.model
+var model = require('../models/orderHist.js');
+var rests = model.model;
 
 
 router.get('/', function(req, res){
@@ -10,8 +10,9 @@ router.get('/', function(req, res){
     rests.find({}, function (err, docs) {
         //if err
         if(docs) {
-            //console.log(order);
-            res.render('accordionHistory', {data: docs, scripts: []});
+
+            console.log(docs);
+            res.render('accordionHistory', {data: docs});
         }
     });
 
@@ -27,7 +28,7 @@ router.get('/:id', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, name: id, scripts: []});
+            res.render('accordionHistory', {data: docs, name: id, scripts: []});
         }
     });
 });
