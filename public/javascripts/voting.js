@@ -15,7 +15,15 @@ $( document ).ready(function() {
 
     });
 
-    var clock = new FlipClock($('.your-clock'), {
+    var clock;
 
+    clock = $('.clock').FlipClock(3000, {
+        clockFace: 'MinuteCounter',
+        countdown: true,
+        callbacks: {
+            stop: function() {
+                $('.message').html('The clock has stopped!')
+            }
+        }
     });
 });

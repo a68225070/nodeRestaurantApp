@@ -11,7 +11,7 @@ router.get('/', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, scripts: ['/public/javascripts/voting.js']});
+            res.render('restMenu', {data: docs, scripts: ['/public/javascripts/voting.js', '/public/javascripts/flipclock.js']});
         }
     });
 
@@ -27,7 +27,7 @@ router.get('/:id', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, name: id, scripts: ['/public/javascripts/voting.js']});
+            res.render('restMenu', {data: docs, name: id, scripts: ['/public/javascripts/voting.js', '/public/javascripts/flipclock.js']});
         }
     });
 });
