@@ -14,4 +14,8 @@ $( document ).ready(function() {
     $('#submitButton').on('click', function(){
 
     });
+
+    var clock = new FlipClock($('.your-clock'), {
+
+    });
 });

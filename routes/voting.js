@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var model = require('../models/restaurants.js');
-var rests = model.model
+var rests = model.model;
 
 
 router.get('/', function(req, res){
@@ -11,7 +11,7 @@ router.get('/', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, scripts: ['javascripts/voting.js']});
+            res.render('restMenu', {data: docs, scripts: ['/public/javascripts/voting.js']});
         }
     });
 
@@ -27,7 +27,7 @@ router.get('/:id', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, name: id, scripts: ['javascripts/voting.js']});
+            res.render('restMenu', {data: docs, name: id, scripts: ['/public/javascripts/voting.js']});
         }
     });
 });
