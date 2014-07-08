@@ -1,7 +1,56 @@
-#accordion
-    h3 Get Date; Get Restaurant; $ Get $amount
-        div
-            ul
-                li Get userName; Get menuItem; $ Get itemPrice
-                li Get userName; Get menuItem; $ Get itemPrice
-                li Get userName; Get menuItem; $ Get itemPrice
+include layout
+include userNavbar
+
+.row.clearfix
+    .col-md-6.column
+        h3
+            strong Order
+        ul.list-unstyled.list-group
+            //each loop to iterate through order list
+            each d, i in order
+                // names the href with the order number
+                a.restaurant-name(href='/restaurantListings/#{d.orderNo}')
+                    // list the date of the order; Restaurant name; total amount $$
+                    li#rest.restaurant.list-group-item.scaled.date=d.date
+                        // get the restaurant name
+                        span.pull-right.restaurantName= d.name
+                            // get the total amount paid
+                            span.pull-right.totalPrice= d.total
+
+    .col-md-6.column
+        h3
+            strong Details
+        ul.list-unstyled.list-group
+            //each loop to iterate through order list
+            each i in data
+                // checks if the name is the same as the list on the right
+                if i.name == name
+                    // loop through each of the details for that order
+                    each d in i.items
+                        // list the user with Name, what item they had and what it costed
+                        li#rest.menuItem.list-group-item.scaled.userName= d.userName
+                            // get the menu item by name
+                            span.pull-right.menuItem= d.itemName
+                                // get the price associated with the menu item
+                                span.pull-right.price= d.price
+
+include footer
+
+//#accordion
+//    h3
+//        strong Menu
+//        ul.list-unstyled.list-group
+//            each loop to iterate through menu list
+//            each i in data
+//                if i.name == name
+//                    each d in i.items
+//                        li#rest.menuItem.list-group-item.scaled= d.itemName
+//                            span.pull-right.price= d.price
+//
+//
+//    h3 Get Date; Get Restaurant; $ Get $amount
+//        div
+//            ul
+//                li Get userName; Get menuItem; $ Get itemPrice
+//                li Get userName; Get menuItem; $ Get itemPrice
+//                li Get userName; Get menuItem; $ Get itemPrice
