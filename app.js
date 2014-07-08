@@ -6,8 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
+var partial = require('express-partial');
 
 var app = express();
+
+
+app.use(partial());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
