@@ -1,4 +1,7 @@
-//$(document).ready(function() {
+$(document).ready(function() {
+
+   console.log("ready");
+});
 //
 //    //Variable for data chart
 //    var inout = 0, bagel = 0,noodles =0, afghanan = 0, sushi = 0, togo = 0, unamas = 0, fiveGuys = 0;
