@@ -7,7 +7,8 @@ var timerSchema = new Schema({
 	    startTime: Number,
 	    endTime: Number,
 	    seconds: Number,
-	    userSelection : String
+	    userSelection : [{userName: String, selection: String}],
+	    state: String
 	});
 });
 
