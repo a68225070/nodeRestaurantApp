@@ -6,4 +6,4 @@ var adminSchema = new Schema({
 });
 
 exports.model = mongoose.model('admin', adminSchema);
-mongoose.connect('mongodb://localhost:27017/admin');
+mongoose.connect('mongodb://localhost:27017/restaurants');

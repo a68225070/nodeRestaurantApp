@@ -7,4 +7,4 @@ var userSchema = new Schema({
 });
 
 exports.model = mongoose.model('users', usersSchema);
-mongoose.connect('mongodb://localhost:27017/users');
+mongoose.connect('mongodb://localhost:27017/restaurants');
