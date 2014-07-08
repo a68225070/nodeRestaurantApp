@@ -11,7 +11,12 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "jade": "~1.3.0",
+<<<<<<< HEAD
+    "mongodb": "*",
+    "mongoose": "*"
+=======
     "mongoose": "~3.8.12",
     "mongo": "~0.1.0"
+>>>>>>> afddb2243d495d4433d98f34805a044d34eaf12f
   }
 }
