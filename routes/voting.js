@@ -8,9 +8,10 @@ var rests = model.model
 router.get('/', function(req, res){
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {
+        //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs});
+            res.render('restMenu', {data: docs, scripts: ['javascripts/voting.js']});
         }
     });
 
