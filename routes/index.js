@@ -14,8 +14,8 @@ router.get('/restmenu', function(req, res) {
     res.render('restMenu', { title: 'Express' });
 });
 
-router.get('/login', function(req, res) {
-    res.render('login');
+router.get('/SelectRest', function(req, res) {
+    res.render('admin-select');
 });
 
 module.exports = router;

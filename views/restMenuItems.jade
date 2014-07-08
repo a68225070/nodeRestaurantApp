@@ -3,12 +3,45 @@
     h3#nameDiv(style='display: none;')
     #menuItemsrest1.menu()
         ul#checkboxes.list-group.list-unstyled
-            if d.name == name
-        each i in d.items
-            li= i.itemName
-    each d in data
-        each i in d.items
-            li= i.itemName
+          //  gets menu items for each resturant
+                block content
+          each i in data
+            if i.name == name
+                each d in i.items
+                    li= d.itemName
+
+            //li.list-group-item
+            //    input(type='checkbox', data-price='4', name='Cheeseburger')
+            //    | Cheeseburger
+            //    span.pull-right $4.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='4', name='Hamburger')
+            //    | Hamburger
+            //    span.pull-right $4.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='2', name='Fries')
+            //    | Fries
+            //    span.pull-right $2.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='6', name='Double-Double')
+            //    | Double-Double
+            //    span.pull-right $6.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='5', name='3x3')
+            //    | 3x3
+            //    span.pull-right $5.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='7', name='4x4')
+            //    | 4x4
+            //    span.pull-right $7.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='6', name='Protein Style')
+            //    | Protein Style
+            //    span.pull-right $6.00
+            //li.list-group-item
+            //    input(type='checkbox', data-price='7', name='Animal Style')
+            //    | Animal Style
+            //    span.pull-right $7.00
         //
           <div class="row"><span class="badge pull-right" style="">Extras: <input type="text" id="extras" name="extras" /></span></div>
         div
