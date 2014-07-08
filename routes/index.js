@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var model = require('../models/restaurants.js');
+var rests = model.model;
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -10,20 +14,8 @@ router.get('/restmenu', function(req, res) {
     res.render('restMenu', { title: 'Express' });
 });
 
-
-// code to pull data from database
-// Work in progress
-/*
-router.get('/Restaurantlist', function(req, res) {
-    var db = req.db;
-    var collection = db.get('restaurants');
-    collection.find({},{},function(e,docs){
-        res.render('restMenu', {
-            "restaurants" : docs
-        });
-    });
+router.get('/login', function(req, res) {
+    res.render('login');
 });
-*/
-
 
 module.exports = router;

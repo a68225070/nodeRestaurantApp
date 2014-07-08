@@ -9,7 +9,13 @@ include vote
             //each loop to iterate through resturant list
             each d in data
                 li.restaurant.list-group-item.scaled=d.name
-
-include restMenuItems
+    .col-md-6.column
+        h3
+            strong Menu
+        ul.list-unstyled.list-group
+           //each loop to iterate through resturant list
+          each d in data
+                each i in d.items
+                li.restaurant.list-group-item.scaled #{i.itemName}, #{i.price}
 
 include footer
