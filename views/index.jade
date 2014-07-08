@@ -1,10 +1,9 @@
 doctype
 html(lang='en')
-head
+  head
     meta(charset='UTF-8')
     title Login
-    link(rel='stylesheet', type='text/css', href='css/bootstrap.css')
-    link(rel='stylesheet', type='text/css', href='css/style.css')
+    link(rel='stylesheet', type='text/css', href='/public/stylesheets/bootstrap.css')
     script(type='text/javascript', src='https://cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js')
     script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.17/firebase.js')
     link(rel='icon', type='image/ico', href='images/ware.ico')
@@ -22,8 +21,7 @@ head
             input(type='checkbox', color='white')
             | Remember me
         button.btn.btn-default.form-control(type='submit') Sign in
-    | c
-    img#food.img-responsive.center-block(src='images/food.png')
+    img#food.img-responsive.center-block(src='public/images/food.png')
     #wrap
       #main.container.clear-top
     footer.footer
