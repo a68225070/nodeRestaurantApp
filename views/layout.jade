@@ -8,17 +8,19 @@ html
     script(src='http://code.jquery.com/jquery-1.11.0.min.js')
     script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
     link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')
-    script(src='javascripts/RestaurantAppCtrl.js')
+    script(src='/public/javascripts/RestaurantAppCtrl.js')
     script(src='https://cdn.firebase.com/js/client/1.0.15/firebase.js')
+    link(rel='stylesheet', href='/public/stylesheets/flipclock.css')
     //
        Bootstrap
     //link(href='stylesheets/bootstrap.css', rel='stylesheet')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
     link(rel='stylesheet', href='css/layout.css')
-    script(src='javascripts/bootstrap.min.js')
+    script(src='/public/javascripts/bootstrap.min.js')
     script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
     -if (scripts != null)
         -each script in scripts
             script(type='text/javascript', src= script)
+
   body
-    block content
+    //block content

@@ -14,4 +14,16 @@ $( document ).ready(function() {
     $('#submitButton').on('click', function(){
 
     });
+
+    var clock;
+
+    clock = $('.clock').FlipClock(3000, {
+        clockFace: 'MinuteCounter',
+        countdown: true,
+        callbacks: {
+            stop: function() {
+                $('.message').html('The clock has stopped!')
+            }
+        }
+    });
 });
