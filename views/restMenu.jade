@@ -6,16 +6,10 @@ include vote
         h3
             strong Restaurants
         ul.list-unstyled.list-group
-            //each loop to iterate through resturant list
-            each d in data
-                li.restaurant.list-group-item.scaled=d.name
-    .col-md-6.column
-        h3
-            strong Menu
-        ul.list-unstyled.list-group
-           //each loop to iterate through resturant list
-          each d in data
-                each i in d.items
-                li.restaurant.list-group-item.scaled #{i.itemName}, #{i.price}
+            //each loop to iterate through restaurant list
+            each d, i in data
+                li#rests.restaurant.list-group-item.scaled=d.name
+
+include restMenuItems
 
 include footer
