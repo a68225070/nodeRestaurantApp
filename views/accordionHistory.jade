@@ -7,32 +7,33 @@ include userNavbar
             strong Order
         ul.list-unstyled.list-group
             //each loop to iterate through order list
-            each d, i in order
+            each d in data
+                li=d.user
                 // names the href with the order number
-                a.restaurant-name(href='/restaurantListings/#{d.orderNo}')
+                //a.restaurant-name(href='/restaurantListings/#{d.orderNo}')
                     // list the date of the order; Restaurant name; total amount $$
-                    li#rest.restaurant.list-group-item.scaled.date=d.date
+                    //li#rest.restaurant.list-group-item.scaled.date=d.date
                         // get the restaurant name
-                        span.pull-right.restaurantName= d.name
+                        //span.pull-right.restaurantName= d.name
                             // get the total amount paid
-                            span.pull-right.totalPrice= d.total
+                            //span.pull-right.totalPrice= d.total
 
     .col-md-6.column
         h3
             strong Details
         ul.list-unstyled.list-group
             //each loop to iterate through order list
-            each i in data
+            //each i in data
                 // checks if the name is the same as the list on the right
-                if i.name == name
+                //if i.name == name
                     // loop through each of the details for that order
-                    each d in i.items
+                    //each d in i.items
                         // list the user with Name, what item they had and what it costed
-                        li#rest.menuItem.list-group-item.scaled.userName= d.userName
+                        //li#rest.menuItem.list-group-item.scaled.userName= d.userName
                             // get the menu item by name
-                            span.pull-right.menuItem= d.itemName
+                            //span.pull-right.menuItem= d.itemName
                                 // get the price associated with the menu item
-                                span.pull-right.price= d.price
+                                //span.pull-right.price= d.price
 
 include footer
 
