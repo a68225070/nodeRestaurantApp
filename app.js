@@ -31,11 +31,8 @@ app.use('/public', express.static(__dirname + '/public'));
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var voting = require('./routes/voting');
-
-var history = require('./routes/historic')
 var adminControl = require('./routes/adminControl');
 var adminForm = require('./routes/adminForm');
-
 var history = require('./routes/historic');
 var setTime = require('./routes/setTime');
 var startTime = require('./routes/startTimer');
@@ -43,6 +40,8 @@ var adminselection = require('./routes/voting');
 var authenticate = require('./routes/authenticate');
 var menuselect = require('./routes/menupage');
 var addUser = require('./routes/adduser');
+var editUser = require('./routes/editUser');
+var editRest = require('./routes/editRest');
 
 
 app.use('/', routes);
@@ -58,6 +57,8 @@ app.use('/new', adminControl);
 app.use('/authenticate', authenticate);
 app.use('/menupage', menuselect);
 app.use('/adduser', addUser);
+//app.use('/editUser', editUser);
+app.use('/editRest', editRest);
 //app.use('admin-select', voting);
 
 
