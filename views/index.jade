@@ -9,13 +9,13 @@ html(lang='en')
     link(rel='icon', type='image/ico', href='images/ware.ico')
   body
     nav.navbar.navbar-default(role='navigation')
-      form.form-inline.pull-right(role='form')
+      form.form-inline.pull-right(role='form', method='POST' action='/authenticate')
         .form-group
           label.sr-only(for='exampleInputEmail2') Email address
-          input#exampleInputEmail2.form-control(type='email', placeholder='Enter email')
+          input#exampleInputEmail2.form-control(type='email', name='email', placeholder='Enter email')
         .form-group
           label.sr-only(for='exampleInputPassword2') Password
-          input#exampleInputPassword2.form-control(type='password', placeholder='Password')
+          input#exampleInputPassword2.form-control(type='password', name='password', placeholder='Password')
         .checkbox
           label
             input(type='checkbox', color='white')

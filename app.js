@@ -24,14 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(session({
-    secret: 'asdfghjkl',
-    store: new MongoStore({
-        db: 'restaurant',
-        host: '127.0.0.1',
-        port: 27017
-    })
-}));
+
 //app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -41,6 +34,8 @@ var users = require('./routes/users');
 var voting = require('./routes/voting');
 var history = require('./routes/historic');
 var adminselection = require('./routes/voting');
+var authenticate = require('./routes/authenticate');
+
 
 app.use('/', routes);
 app.use('/users', users); // not used
@@ -48,6 +43,7 @@ app.use('/restaurantListings', voting); //displays restaurant listings and timer
 app.use('/restaurantListings/:id', voting); //detailed restaurant listings :id  is the name of the restaurant as a string
 app.use('/orderHistory', history);
 app.use('/orderHistory/:id', history);
+app.use('/authenticate', authenticate);
 //app.use('admin-select', voting);
 
 // catch 404 and forward to error handler
@@ -56,11 +52,20 @@ app.use('/orderHistory/:id', history);
 //     err.status = 404;
 //     next(err);
 // });
-app.get('/ok', function(req, res){
-    req.session.name = req.session.name || new Date().toUTCString();
-    res.send(req.sessionID);
-});
+//app.get('/ok', function(req, res){
+//    req.session.name = req.session.name || new Date().toUTCString();
+//    res.send(req.sessionID);
+//});
+app.use(session({
+    secret: 'asdfghjkl',
+    store: new MongoStore({
+        db: 'restaurants',
+        collection: 'users',
+        host: 'localhost',
+        port: 27017
+    }),
 
+}));
 
 
 // load all files in models dir
