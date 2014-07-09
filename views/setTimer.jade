@@ -5,7 +5,7 @@ include  layout
                 h2(style="margin-left: 63px") Current Timer
                 .clock
                 button(data-toggle='modal', data-target='#myModal').btn-success.btn.btn-lg(style="margin-right: 36px; margin-left: 12px;") Start Timer
-                button.btn-danger.btn.btn-lg.btn-reset Reset Timer
+                button(data-toggle='modal', data-target='#myModal2').btn-danger.btn.btn-lg.btn-reset Reset Timer
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
         .modal-dialog
             .modal-content
@@ -15,7 +15,7 @@ include  layout
                         span.sr-only Close
                     h4#myModalLabel.modal-title Start Timer
                 .modal-body
-                    p Warning this will restart any current votes
+                    p.alert.alert-danger Warning, this will start a new voting session. All current votes will be reset
                     label Minutes:
                     input#min(type='number', value=15,style="margin-right: 15px")
                     label Seconds
@@ -23,3 +23,20 @@ include  layout
                 .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Close
                     button.btn.btn-primary.btn-start(type='button') Start Timer
+    #myModal2.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal')
+                        span(aria-hidden='true') ×
+                        span.sr-only Close
+                    h4#myModalLabel.modal-title Start Timer
+                .modal-body
+                    p.alert.alert-warning The timer will be reset but current votes will be maintained
+                    label Minutes:
+                    input#min(type='number', value=15,style="margin-right: 15px")
+                    label Seconds
+                    input#sec(type='number' value=00)
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary.btn-reset(type='button') Reset Timer

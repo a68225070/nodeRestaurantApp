@@ -20,7 +20,7 @@ include vote
                 if i.name == name
                     each d in i.items
                         li#rest.menuItem.list-group-item.scaled= d.itemName
-                            span.pull-right.price= d.price
+                            span.pull-right.price $#{d.price}
 .row
     .col-md-12
         button#submitButton.btn.btn-primary.pull-right Submit

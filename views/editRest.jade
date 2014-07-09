@@ -1,0 +1,41 @@
+doctype
+html
+    head(lang='en')
+        meta(charset='UTF-8')
+        title
+        script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js')
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', type='text/css')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    body
+        .container
+            #accordion1.panel-group
+                each item in data
+                    -var x = '#' + item._id
+                    .panel.panel-default
+                        .panel-heading
+                            h3.panel-title
+                                a(data-toggle='collapse', data-parent='#accordion1', href=x)
+                                    | #{item.name}
+                        div(id=item._id).panel-collapse.collapse
+                            .panel-body
+                                div(role='form')
+                                    .col-md-6
+                                        .form-group
+                                            label(for='newUser') Change Restaurant Name
+                                            input#newUser.form-control(type='text', value=item.name)
+                                        .form-group
+                                            label(for='restAddress') Change Address
+                                            input#restAddress.form-control(type='text', value=item.address)
+                                        .form-group
+                                            label(for='restPhone') Update Phone Number
+                                            input#restPhone.form-control(type='text', value=item.phone)
+                                    .col-md-6
+                                        strong Update the Menu
+                                        each i in item.items
+                                            .form-group.form-inline
+                                                label(for='menuItem') Menu
+                                                input#menuItem.form-control(type='text', value=i.itemName)
+                                                label(for='itemPrice') Price
+                                                input#itemPrice.form-control(type='number', value=i.price)
+                                    button.btn.btn-default(type='submit') Update Restaurant
+                                    button.btn.btn-default(type='submit') Delete Restaurant
