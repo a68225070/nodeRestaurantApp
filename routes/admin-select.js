@@ -11,4 +11,3 @@
 //var mongoose = require('mongoose');
 //var model = require('../models/restaurants.js');
 //var rests = model.model;
-
