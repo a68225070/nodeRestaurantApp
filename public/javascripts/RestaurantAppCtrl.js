@@ -3,7 +3,7 @@ $(function() {
     $( ".selection" ).click(function() {
 
         //confirms selection
-        var answer = true;
+
         var input =  prompt("Are you sure?", input);
         // get input value
         if (input == "yes");
@@ -21,8 +21,6 @@ $(function() {
 
         //display list of menu items
     });
-
-
 
 
 
