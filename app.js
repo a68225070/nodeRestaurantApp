@@ -6,8 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
+var session = require('express-session');
+var connect = require('connect');
 
 var app = express();
+var MongoStore = require('connect-mongo')(session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +21,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({
+    secret: 'asdfghjkl',
+    store: new MongoStore({
+        db: 'restaurant',
+        host: '127.0.0.1',
+        port: 27017
+    })
+}));
 //app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -37,6 +48,11 @@ app.use('/restaurantListings/:id', voting);
 //     err.status = 404;
 //     next(err);
 // });
+app.get('/ok', function(req, res){
+    req.session.name = req.session.name || new Date().toUTCString();
+    res.send(req.sessionID);
+});
+
 
 
 // load all files in models dir

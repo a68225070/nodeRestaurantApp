@@ -1,0 +1,32 @@
+doctype 5
+html(lang='en')
+head
+    meta(charset='UTF-8')
+    title Login
+    link(rel='stylesheet', type='text/css', href='css/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+    script(type='text/javascript', src='https://cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js')
+    script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.17/firebase.js')
+    link(rel='icon', type='image/ico', href='images/ware.ico')
+  body
+    nav.navbar.navbar-default(role='navigation')
+      form.form-inline.pull-right(role='form', action='/login', method='post')
+        .form-group
+          label.sr-only(for='exampleInputEmail2') Email address
+          input#exampleInputEmail2.form-control(type='email', name= 'email', placeholder='john@doe.com')
+        .form-group
+          label.sr-only(for='exampleInputPassword2') Password
+          input#exampleInputPassword2.form-control(type='password', name='password' placeholder='password')
+        .checkbox
+          label
+            input(type='checkbox', color='white')
+            | Remember me
+        button.btn.btn-default.form-control(type='submit') Sign in
+    | c
+    img#food.img-responsive.center-block(src='images/food.png')
+    #wrap
+      #main.container.clear-top
+    footer.footer
+    script(src='http://code.jquery.com/jquery.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(src='js/authlogin.js')
