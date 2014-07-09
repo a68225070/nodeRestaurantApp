@@ -8,16 +8,16 @@ var rests = model.model;
 router.get('/', function(req, res){
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {
-        //if err
-        if(docs) {
-
-            console.log(docs);
+        if(err){
+            console.log('Error: ' + err);
+        } else if(docs) {
             res.render('accordionHistory', {data: docs});
+        } else {
+            console.log('Query returned no results.');
         }
     });
 
 });
-
 
 
 router.get('/:id', function(req, res){
@@ -25,10 +25,13 @@ router.get('/:id', function(req, res){
     console.log(id);
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {
-        //if err
-        if(docs) {
+        if(err){
+            console.log('Error: ' + err);
+        } else if(docs) {
             //console.log(docs);
             res.render('accordionHistory', {data: docs, id: id, scripts: []});
+        } else {
+            console.log('Query returned no results.');
         }
     });
 });
