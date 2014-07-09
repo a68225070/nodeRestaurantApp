@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="mongodb:/localhost:27017/restaurants" method="POST">
+		
+		<label for="name">Restaurant Name</label>
+			<input type="text" name="name">
+		<label for="items">Item Name</label>
+			<input type="text" name="items.itemName">
+		<label for="items">Item Price</label>
+			<input type="number" name="items.price">
+		<label for="address">Address</label>
+			<input type="text" name="address">
+		<label for="phone">Phone Number</label>
+			<input type="text" name="phone">
+			
+		<input type="submit">
+	</form>
+</body>
+</html>
+

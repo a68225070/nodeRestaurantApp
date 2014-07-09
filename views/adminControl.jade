@@ -1,0 +1,18 @@
+doctype
+html(lang='en')
+head
+    meta(charset='UTF-8')
+    title Document
+  body
+    form(action='/new', method='POST')
+      label(for='name') Restaurant Name
+      input(type='text', name='name')
+      label(for='items') Item Name
+      input(type='text', name='items.itemName')
+      label(for='items') Item Price
+      input(type='number', name='items.price')
+      label(for='address') Address
+      input(type='text', name='address')
+      label(for='phone') Phone Number
+      input(type='text', name='phone')
+      input(type='submit')

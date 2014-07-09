@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var model = require('../models/restaurants.js');
+var model = require('../models/users.js');
+
 var rests = model.model;
 
 
-router.get('/', function(req, res){
-    //This query returns all data from the restaurant table into a variable docs
+router.post('/', function(req, res){
+    var email = req.body.email;
+    var password = req.body.password;
+    var vote_count = 0;
+    var vote = [];
+    console.log(email, password);
     rests.find({}, function (err, docs) {
         //if err
         if(docs) {
-            //console.log(docs);
-            res.render('restMenu', {data: docs, scripts: ['/public/javascripts/voting.js', '/public/javascripts/flipclock.js']});
+            res.send(docs);
         }
     });
 
@@ -27,9 +31,10 @@ router.get('/:id', function(req, res){
         //if err
         if(docs) {
             //console.log(docs);
-            res.render('restMenu', {data: docs, name: id, scripts: ['/public/javascripts/voting.js', '/public/javascripts/flipclock.js']});
+            res.render('accordionHistory', {data: docs, id: id, scripts: []});
         }
     });
 });
+
 
 module.exports = router;
