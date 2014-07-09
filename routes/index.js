@@ -10,9 +10,6 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/restmenu', function(req, res) {
-    res.render('restMenu', { title: 'Express' });
-});
 
 router.get('/SelectRest', function(req, res) {
     res.render('admin-select');
