@@ -27,6 +27,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var voting = require('./routes/voting');
 var history = require('./routes/historic');
+var adminselection = require('./routes/voting');
 
 app.use('/', routes);
 app.use('/users', users);
@@ -34,6 +35,7 @@ app.use('/restaurantListings', voting);
 app.use('/restaurantListings/:id', voting);
 app.use('/orderHistory', history);
 app.use('/orderHistory/:id', history);
+//app.use('')
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
