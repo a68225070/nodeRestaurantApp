@@ -1,0 +1,15 @@
+include layout
+include userNavbar
+.container
+    .row
+        form.col-md-6.col-md-offset-3(role='form', method='POST', action='/adduser')
+            .form-group
+                label(for='newUser') Enter Full Name
+                input#newUser.form-control(type='text', name='name', placeholder='John Doe')
+            .form-group
+                label(for='newUserEmail') Email address
+                input#newUserEmail.form-control(type='email', name='email', placeholder='example@gmail.com')
+            .form-group
+                label(for='newUserPassword') Password
+                input#newUserPassword.form-control(type='password', name='password', placeholder='Password')
+            button.btn.btn-default.pull-right(type='submit') Create user
