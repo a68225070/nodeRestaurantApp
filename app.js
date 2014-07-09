@@ -26,7 +26,9 @@ app.use('/public', express.static(__dirname + '/public'));
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var voting = require('./routes/voting');
-var history = require('./routes/historic');
+var history = require('./routes/historic')
+var adminControl = require('./routes/adminControl');
+var adminForm = require('./routes/adminForm');
 
 
 app.use('/', routes);
@@ -35,6 +37,8 @@ app.use('/restaurantListings', voting);
 app.use('/restaurantListings/:id', voting);
 app.use('/orderHistory', history);
 app.use('/orderHistory/:id', history);
+app.use('/adminControl', adminForm);
+app.use('/new', adminControl);
 
 
 
