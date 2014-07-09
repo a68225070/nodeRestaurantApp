@@ -2,10 +2,16 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var model = require('../models/restaurants.js');
+var session = require('express-session');
+var connect = require('connect');
+
 var rests = model.model;
 
 
 router.get('/', function(req, res){
+    //this still doesn't work
+    console.log(req.sessionID);
+
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {
         //if err
@@ -16,8 +22,6 @@ router.get('/', function(req, res){
     });
 
 });
-
-
 
 router.get('/:id', function(req, res){
     var id = req.params.id;

@@ -23,7 +23,7 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser('passphrase'));
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -43,6 +43,15 @@ var adminselection = require('./routes/voting');
 var authenticate = require('./routes/authenticate');
 var addUser = require('./routes/adduser');
 
+//app.get('/', function(req, res){
+//    if(req.cookies.beenHere == 'yes'){
+//        var it = req.sessionID;
+//        console.log(it);
+//    } else {
+//        res.cookie('beenHere', 'yes');
+//        res.send('first time')
+//    }
+//});
 
 app.use('/', routes);
 app.use('/users', users); // not used
@@ -65,20 +74,16 @@ app.use('/adduser', addUser);
 //     err.status = 404;
 //     next(err);
 // });
-//app.get('/ok', function(req, res){
-//    req.session.name = req.session.name || new Date().toUTCString();
-//    res.send(req.sessionID);
-//});
+
 
 app.use(session({
     secret: 'asdfghjkl',
     store: new MongoStore({
         db: 'restaurants',
-        collection: 'users',
+        collection: 'sessions',
         host: 'localhost',
         port: 27017
-    }),
-
+    })
 }));
 
 
