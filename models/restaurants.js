@@ -10,5 +10,4 @@
         phone: String
     });
 
-    exports.model = mongoose.model('restaurants', restaurantsSchema);
-    mongoose.connect('mongodb://localhost:27017/restaurants');
+    exports.model = mongoose.model('restaurants', restaurantsSchema, 'restaurants');
