@@ -1,7 +1,24 @@
-#accordion
-    h3 Get Date; Get Restaurant; $ Get $amount
-        div
-            ul
-                li Get userName; Get menuItem; $ Get itemPrice
-                li Get userName; Get menuItem; $ Get itemPrice
-                li Get userName; Get menuItem; $ Get itemPrice
+include layout
+include userNavbar
+
+.row.clearfix
+    .col-md-6.column
+        h3
+            strong Order
+        ul.list-unstyled.list-group
+            //each loop to iterate through order list
+            each d in data
+                a.restaurant-name(href='/orderHistory/#{d._id}')
+                    li.list-group-item.scaled #{d.restName} - $#{d.total} - #{d.date}
+
+    .col-md-6.column
+        h3
+            strong Details
+        ul.list-unstyled.list-group
+            each i in data
+                if i._id == id
+                    each d in i.order
+                        li.list-group-item.scaled #{d.item} - #{d.username}
+                            span.pull-right.price $#{d.price}
+
+include footer
