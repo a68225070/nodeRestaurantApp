@@ -41,6 +41,7 @@ var setTime = require('./routes/setTime');
 var startTime = require('./routes/startTimer');
 var adminselection = require('./routes/voting');
 var authenticate = require('./routes/authenticate');
+var menuselect = require('./routes/menupage');
 
 
 app.use('/', routes);
@@ -54,6 +55,7 @@ app.use('/startTimer', startTime);
 app.use('/adminControl', adminForm);
 app.use('/new', adminControl);
 app.use('/authenticate', authenticate);
+app.use('/menupage', menuselect);
 //app.use('admin-select', voting);
 
 
