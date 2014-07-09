@@ -12,7 +12,7 @@ $(function() {
             console.log("Selected!");
             alert("submitted");
         }
-  
+
     });
 
     $( ".click" ).click(function() {
