@@ -31,11 +31,17 @@ app.use('/public', express.static(__dirname + '/public'));
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var voting = require('./routes/voting');
+
+var history = require('./routes/historic')
+var adminControl = require('./routes/adminControl');
+var adminForm = require('./routes/adminForm');
+
 var history = require('./routes/historic');
 var setTime = require('./routes/setTime');
 var startTime = require('./routes/startTimer');
 var adminselection = require('./routes/voting');
 var authenticate = require('./routes/authenticate');
+
 
 app.use('/', routes);
 app.use('/users', users); // not used
@@ -45,8 +51,11 @@ app.use('/orderHistory', history);
 app.use('/orderHistory/:id', history);
 app.use('/setTime', setTime);
 app.use('/startTimer', startTime);
+app.use('/adminControl', adminForm);
+app.use('/new', adminControl);
 app.use('/authenticate', authenticate);
 //app.use('admin-select', voting);
+
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
