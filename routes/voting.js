@@ -10,7 +10,7 @@ var rests = model.model;
 
 router.get('/', function(req, res){
     //this still doesn't work
-    console.log(req.sessionID);
+    console.log(req.cookies['connect.sid']);
 
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {

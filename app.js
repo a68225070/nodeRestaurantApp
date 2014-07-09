@@ -86,9 +86,20 @@ app.use(session({
         collection: 'sessions',
         host: 'localhost',
         port: 27017
-    })
+    }),
+    cookie: {maxAge: 900000}
 }));
-
+app.use(function(req, res, next){
+  var sess = req.session;
+    if(sess.views){
+        sess.views++;
+        console.log('views:' + sess.views);
+        res.end();
+    } else{
+        sess.views = 1;
+        console.log('welcome to demo, refresh');
+    }
+})
 
 // load all files in models dir
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {
