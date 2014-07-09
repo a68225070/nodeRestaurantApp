@@ -8,7 +8,7 @@ var orderHistorySchema = new Schema({
     date: Date,
     restName: String,
     total: Number,
-    order: [{userName: String, item: String, price: Number}]
+    order: [{username: String, item: String, price: Number}]
 });
 
 exports.model = mongoose.model('orderHistory', orderHistorySchema, 'orderHistory');
