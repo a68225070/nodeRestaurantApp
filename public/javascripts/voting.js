@@ -17,8 +17,13 @@ $( document ).ready(function() {
     });
 
     var clock;
-
-    clock = $('.clock').FlipClock(3000, {
+    var time = $('#timer-val').text();
+    time = time - Math.round(new Date().getTime() / 1000);
+    if (time < 0){
+        time = 0;
+        $('#submitButton').addClass('disabled');
+    }
+    clock = $('.clock').FlipClock(time, {
         clockFace: 'MinuteCounter',
         countdown: true,
         callbacks: {

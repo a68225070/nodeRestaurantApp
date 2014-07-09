@@ -16,7 +16,6 @@ $( document ).ready(function() {
         var min = $('#min').val();
         var sec = Number($('#sec').val());
         var time = (min * 60) + sec;
-        alert(time);
         $.ajax({
             type: "POST",
             url: '/startTimer',
@@ -25,5 +24,22 @@ $( document ).ready(function() {
         });
         clock.setTime(time);
         $('#myModal').modal('hide');
+    });
+
+
+    $('.reset').on('click', function() {
+        var min = $('#min2').val();
+        var sec = Number($('#sec2').val());
+        var time = (min * 60) + sec;
+        var timestamp = Math.round(new Date().getTime() / 1000);
+        timestamp = timestamp + time;
+        $.ajax({
+            type: "POST",
+            url: '/resetTimer',
+            dataType: 'json',
+            data: {val: timestamp}
+        });
+        clock.setTime(time);
+        $('#myModal2').modal('hide');
     });
 });

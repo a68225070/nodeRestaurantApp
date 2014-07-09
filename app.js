@@ -42,6 +42,7 @@ var menuselect = require('./routes/menupage');
 var addUser = require('./routes/adduser');
 var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
+var resetTimer = require('./routes/resetTimer');
 
 
 app.use('/', routes);
@@ -59,6 +60,7 @@ app.use('/menupage', menuselect);
 app.use('/adduser', addUser);
 //app.use('/editUser', editUser);
 app.use('/editRest', editRest);
+app.use('/resetTimer', resetTimer);
 //app.use('admin-select', voting);
 
 

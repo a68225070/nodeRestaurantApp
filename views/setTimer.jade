@@ -34,9 +34,9 @@ include  layout
                 .modal-body
                     p.alert.alert-warning The timer will be reset but current votes will be maintained
                     label Minutes:
-                    input#min(type='number', value=15,style="margin-right: 15px")
+                    input#min2(type='number', value=15,style="margin-right: 15px")
                     label Seconds
-                    input#sec(type='number' value=00)
+                    input#sec2(type='number' value=00)
                 .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Close
-                    button.btn.btn-primary.btn-reset(type='button') Reset Timer
+                    button.btn.btn-primary.reset(type='button') Reset Timer
