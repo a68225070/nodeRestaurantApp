@@ -6,6 +6,7 @@ var orderSubmissionSchema = new Schema({
 	restName: String,
     UserName: String,
     menuItem: String,
+    extras: String,
     price: Number
 });
 

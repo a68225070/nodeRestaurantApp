@@ -7,7 +7,7 @@ include vote
             strong Restaurants
         ul.list-unstyled.list-group
             //each loop to iterate through restaurant list
-            each d, i in data
+            each d in data
                 a.restaurant-name(href='/restaurantListings/#{d.name}')
                     li#rest.restaurant.list-group-item.scaled=d.name
 

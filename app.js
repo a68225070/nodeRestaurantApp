@@ -47,6 +47,7 @@ var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
 var adminSelect = require('./routes/adminSelect');
 var selectedRestaurant = require('./routes/selectedRestaurant');
+var submitOrder = require('./routes/submitOrder');
 var deleteUser = require('./routes/deleteuser');
 var updateUser = require('./routes/updateuser');
 
@@ -82,6 +83,7 @@ app.use('/adminSelect/', adminSelect);
 app.use('/adminSelect/:id', adminSelect);
 app.use('/submitRestaurant/:id', menuselect);
 app.use('/selectedRestaurant', selectedRestaurant);
+app.use('/submitOrderData', submitOrder);
 app.use('/deleteuser', deleteUser);
 app.use('/updateuser', updateUser);
 
