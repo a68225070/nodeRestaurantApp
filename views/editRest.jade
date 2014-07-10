@@ -1,34 +1,69 @@
 include layout
 include userNavbar
-        .container
-            #accordion1.panel-group
-                each item in data
-                    -var x = '#' + item._id
-                    .panel.panel-default
-                        .panel-heading
-                            h3.panel-title
-                                a(data-toggle='collapse', data-parent='#accordion1', href=x)
-                                    | #{item.name}
-                        div(id=item._id).panel-collapse.collapse
-                            .panel-body
-                                div(role='form')
-                                    .col-md-6
-                                        .form-group
-                                            label(for='newUser') Change Restaurant Name
-                                            input#newUser.form-control(type='text', value=item.name)
-                                        .form-group
-                                            label(for='restAddress') Change Address
-                                            input#restAddress.form-control(type='text', value=item.address)
-                                        .form-group
-                                            label(for='restPhone') Update Phone Number
-                                            input#restPhone.form-control(type='text', value=item.phone)
-                                    .col-md-6
-                                        strong Update the Menu
-                                        each i in item.items
-                                            .form-group.form-inline
-                                                label(for='menuItem') Menu
-                                                input#menuItem.form-control(type='text', value=i.itemName)
-                                                label(for='itemPrice') Price
-                                                input#itemPrice.form-control(type='number', value=i.price)
-                                    button.btn.btn-default(type='submit') Update Restaurant
-                                    button.btn.btn-default(type='submit') Delete Restaurant
+.container
+    #accordion1.panel-group.col-md-12
+        each item in data
+            -var x = '#' + item._id
+            .panel.panel-default
+                .panel-heading
+                    h3.panel-title
+                        a(data-toggle='collapse', data-parent='#accordion1', href=x)
+                            | #{item.name}
+                div(id=item._id).panel-collapse.collapse
+                    .panel-body
+                        form(role='form' method='POST' action='/editRest')
+                            .col-md-6
+                                .form-group
+                                    label(for='restName') Change Restaurant Name
+                                    input#restName.form-control(type='text', value=item.name, name='item.name')
+                                .form-group
+                                    label(for='restAddress') Change Address
+                                    input#restAddress.form-control(type='text', value=item.address, name='item.address')
+                                .form-group
+                                    label(for='restPhone') Update Phone Number
+                                    input#restPhone.form-control(type='text', value=item.phone, name='item.phone')
+                            .col-md-6
+                                strong Update the Menu
+                                each i in item.items
+                                    .form-group.form-inline
+                                        label(for='menuItem') Menu
+                                        input#menuItem.form-control(type='text', value=i.itemName, name='i.itemName')
+                                        label(for='itemPrice') Price
+                                        input#itemPrice.form-control(type='number', value=i.price, name='i.price', min=0)
+                                .menuItems
+                                button.btn.btn-default(id='addNewItem') Add New Item
+                            button#updateBtn.btn.btn-default(type='submit') Update Restaurant
+                            button#deleteBtn.btn.btn-default(type='submit') Delete Restaurant
+
+    #accordion2.panel-group.col-md-12
+            .panel.panel-default
+                .panel-heading
+                    h3.panel-title.text-center
+                        a(data-toggle='collapse', data-parent='#accordion2', href='#newRest'). Create New Restaurant
+                div(id='newRest').panel-collapse.collapse
+                    .panel-body
+                        form(role='form' method='POST' action='/editRest')
+                            .col-md-6
+                                .form-group
+                                    label(for='restName') Restaurant Name
+                                    input#newRestName.form-control(type='text', name='name')
+                                .form-group
+                                    label(for='restAddress') Address
+                                    input#newRestAddress.form-control(type='text', name='address')
+                                .form-group
+                                    label(for='restPhone') Phone Number
+                                    input#newRestPhone.form-control(type='text', name='phone')
+                            .col-md-6
+                                strong Update the Menu
+                                    .form-group.form-inline
+                                        #addInput
+                                            p
+                                                label(for='#newMenuItem') Menu
+                                                input#newMenuItem.form-control(type='text', name='itemName', size=20)
+                                                label(for='#newItemPrice') Price
+                                                input#newItemPrice.form-control(type='number', name='price', size=20)
+                                    a( id='addNew') Add New Menu Item
+                            button#newBtn.btn.btn-default(type='submit') New Restaurant
+include footer
+
+script(src='/public/javascripts/editNewItem.js')
