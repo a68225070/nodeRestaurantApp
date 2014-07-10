@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
         }else
         {
             //find every user in user model
-            res.render('addUser', { data: docs});
+            res.render('addUser', { data: docs, scripts: ['/public/javascripts/deleteuser.js']});
         }
     })
 
@@ -24,7 +24,7 @@ router.post('/', function(req, res){
     var email = req.body.email;
     var password = req.body.password;
     var permissions = req.body.permissions;
-    console.log(name, email, password, permissions);
+
     var person = new user({
         name: name,
         email: email,
@@ -33,7 +33,15 @@ router.post('/', function(req, res){
         permissions: permissions
     });
     person.save();
-    res.redirect('/adminSelect');//should redirect to admin hub page when its built
+    user.find({}, function(err, docs){
+        if (err){
+            throw err;
+        }else
+        {
+           //find every user in user mode
+            res.render('addUser', { data: docs, scripts: ['/public/javascripts/deleteuser.js']});
+        }
+    })
 });
 
 module.exports = router;

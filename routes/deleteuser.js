@@ -5,20 +5,18 @@ var model = require('../models/users.js');
 var user = model.model;
 
 router.post('/', function(req, res){
+    //get name to query database from deleteuser.js
     var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var permissions = req.body.permissions;
-    console.log(name, email, password, permissions);
-    var person = new user({
-        name: name,
-        email: email,
-        password: password,
-        uid: '',
-        permissions: permissions
-    });
-    person.save();
-    res.redirect('/adminSelect');//should redirect to admin hub page when its built
+
+    //query database for name of user to delete, once a match is found, remove that document
+    user.find({name: name}).remove(function(err,docs){
+        if(err) throw err;
+        else{
+            //console.log('user removed');
+            res.render('adduser');
+        }
+    })
+
 });
 
 module.exports = router;

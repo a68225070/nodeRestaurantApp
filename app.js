@@ -48,7 +48,7 @@ var resetTimer = require('./routes/resetTimer');
 var adminSelect = require('./routes/adminSelect');
 var selectedRestaurant = require('./routes/selectedRestaurant');
 var deleteUser = require('./routes/deleteuser');
-
+var updateUser = require('./routes/updateuser');
 
 
 //app.get('/', function(req, res){
@@ -83,12 +83,8 @@ app.use('/adminSelect/:id', adminSelect);
 app.use('/submitRestaurant/:id', menuselect);
 app.use('/selectedRestaurant', selectedRestaurant);
 app.use('/deleteuser', deleteUser);
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//     var err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
+app.use('/updateuser', updateUser);
+
 
 
 app.use(session({
