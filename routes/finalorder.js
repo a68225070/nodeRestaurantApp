@@ -11,7 +11,7 @@ router.get('/', function(req, res){
         if(err){
             console.log('Error: ' + err);
         } else if(docs) {
-            res.render('ordersubmit', {data: docs});
+            res.render('ordersubmit', {data: docs, scripts: ['/public/javascripts/adminOrder.js']});
         } else {
             console.log('Query returned no results.');
         }
