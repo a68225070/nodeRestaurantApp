@@ -23,7 +23,7 @@ link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
     //                        span.pull-right.price $#{d.cost}
     .col-md-6.column
         h3
-            strong Votes
+            strong Details
         ul.list-unstyled.list-group
             each i in data
                 //if order id matches the one in the url display its items
@@ -31,5 +31,4 @@ link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
                     each d in i.order
                         li.list-group-item.scaled #{d.item} - #{d.userName}
                             span.pull-right.price $#{d.cost}
-        button.btn.btn-primary.pull-right Submit
 include footer
