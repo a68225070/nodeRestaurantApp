@@ -14,7 +14,7 @@ include userNavbar
                                     | #{item.name}
                         div(id=item._id).panel-collapse.collapse
                             .panel-body
-                                div(role='form')
+                                form(role='form' method='POST' action='/deleteuser')
                                     .col-md-10.col-md-offset-1
                                         .form-group
                                             label(for='newUser') Edit User Name
@@ -25,6 +25,11 @@ include userNavbar
                                         .form-group
                                             label(for='restPhone') Change Password
                                             input#restPhone.form-control(type='text', value=item.password)
+                                        .form-group
+                                            label(for='restPermissions') Change Permissions
+                                            select#newUserPassword.form-control(type='password', name='permissions', placeholder='Password')
+                                                option(value='admin') Admin
+                                                option(value='user') User
                                     //delete this later
                                     //.col-md-6
                                     //    strong Update the Menu
@@ -34,8 +39,8 @@ include userNavbar
                                     //            input#menuItem.form-control(type='text', value=i.itemName)
                                     //            label(for='itemPrice') Price
                                     //            input#itemPrice.form-control(type='number', value=i.price)
-                                    button.btn.btn-default(type='update') Update User
-                                    button.btn.btn-default(type='delete') Delete User
+                                    button.btn.btn-default(type='submit' action='/updateuser' method='POST' ) Update User
+                                    button.btn.btn-default(type='submit' action='/deleteuser' method='POST') Delete User
 
         form.col-md-6(role='form', method='POST', action='/adduser')
             .form-group
@@ -47,5 +52,10 @@ include userNavbar
             .form-group
                 label(for='newUserPassword') Password
                 input#newUserPassword.form-control(type='password', name='password', placeholder='Password')
+            .form-group
+                label(for='newUserPermissions') Permissions
+                select#newUserPassword.form-control(type='password', name='permissions', placeholder='Password')
+                    option(value='admin') Admin
+                    option(value='user') User
             button.btn.btn-default.pull-right(type='submit') Create user
 
