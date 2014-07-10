@@ -17,11 +17,11 @@ $( document ).ready(function() {
 	$('.submit').on('click', function() {
 		var txt = $('#txt_name').val();
 		var name = $('.name').text();
-		$.ajax({
-	  		type: "POST",
-	  		url: "/submitdata",
-	  		data: {restName: name, menuItem: items, extra: txt}
-		});;
+//		$.ajax({
+//	  		type: "POST",
+//	  		url: "/submitdata",
+//	  		data: {restName: name, menuItem: items, extra: txt}
+//		});
 	});
 });
 
