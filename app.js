@@ -45,6 +45,7 @@ var addUser = require('./routes/adduser');
 var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
+var adminSelect = require('./routes/adminSelect');
 
 
 //app.get('/', function(req, res){
@@ -74,7 +75,7 @@ app.use('/adduser', addUser);
 app.use('/editRest', editRest);
 app.use('/resetTimer', resetTimer);
 app.use('/aftervote', voting);
-//app.use('admin-select', voting);
+app.use('/adminSelect', adminSelect);
 
 
 // catch 404 and forward to error handler

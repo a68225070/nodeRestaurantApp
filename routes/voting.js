@@ -57,7 +57,7 @@ router.get('/', function(req, res){
 
 router.get('/:id', function(req, res){
     var id = req.params.id;
-    console.log(id);
+
     var time = 0;
     timer.find({}, function(err, docs){
         if(docs.length > 0) {
