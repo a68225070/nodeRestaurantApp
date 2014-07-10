@@ -1,35 +1,29 @@
 include layout
 include userNavbar
-include vote
 
 .row.clearfix
     .col-md-5.column.col-md-offset-1
         h3
-            strong Restaurants
+            strong Orders
         ul.list-unstyled.list-group
-            //each loop to iterate through restaurant list
-            each d, i in data
-                a.restaurant-name(href='/restaurantListings/#{d.name}')
-                    li#rest.restaurant.list-group-item.scaled=d.name
+            //each loop to iterate through orders
+            each d in data
+                li(/orderHistory/#{d.name}')
+                    li.list-group-item.scaled=d.name
 
     .col-md-5.column
         h3
-            strong Menu
+            strong User Orders
         ul.list-unstyled.list-group
-            //each loop to iterate through menu list
+            //each loop to iterate through orders
             each i in data
-                if i.name == name
-                    each d in i.items
-                        li#rest.menuItem.list-group-item.scaled= d.itemName
+                if i.UserName == UserName
+                        li menuItem.list-group-item.scaled= d.menuItem
                             span.pull-right.price $#{d.price}
                     .row
                         .col-md-12
                             button#submitButton.btn.btn-primary.col-md-offset-10 Submit
 
 include footer
-    h6#restaurant-name.hide #{name}
-    h6#timer-val.hide #{time}
-    h6#thisUserHasVoted.hide #{thisUser.hasVoted}
-    h6#thisUserEmail.hide #{thisUser.email}
 
 
