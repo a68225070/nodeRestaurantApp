@@ -47,6 +47,7 @@ var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
 var adminSelect = require('./routes/adminSelect');
 var selectedRestaurant = require('./routes/selectedRestaurant');
+var submitOrder = require('./routes/submitOrder');
 
 
 
@@ -81,6 +82,7 @@ app.use('/adminSelect/', adminSelect);
 app.use('/adminSelect/:id', adminSelect);
 app.use('/submitRestaurant/:id', menuselect);
 app.use('/selectedRestaurant', selectedRestaurant);
+app.use('/submitOrderData', submitOrder);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
