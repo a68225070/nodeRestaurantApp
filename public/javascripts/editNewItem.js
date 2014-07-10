@@ -1,8 +1,8 @@
 $(function() {
 
-    $('#addNewItem').on('click', function() {
+    $('.addNewItem').on('click', function() {
         $(
-                "<div class='form-group form-inline'>"+
+                "<div class='form-group form-inline rest-items'>"+
                 "<label for='menuItem'>Menu</label>" +
                 "<input type='text' class='form-control' name=i.itemName size='20'>" +
                 "<label for='itemPrice'>Price</label>" +

@@ -31,7 +31,7 @@ include userNavbar
                                         label(for='itemPrice') Price
                                         input#itemPrice.form-control(type='number', value=i.price, size=20, name=['i.price'])
                                 .menuItems
-                                a(id='addNewItem') Add New Menu Item
+                                a.addNewItem Add New Menu Item
                         button.btn.btn-primary.update-restaurant Update Restaurant
                         button.btn.btn-danger.pull-right.delete-restaurant Delete Restaurant
 
@@ -59,11 +59,11 @@ include userNavbar
                                         #addInput
                                             p
                                                 label(for='#newMenuItem') Menu
-                                                input#newMenuItem.form-control(type='text', name='itemName', size=20)
+                                                    input#newMenuItem.form-control(type='text', name='itemName', size=20)
                                                 label(for='#newItemPrice') Price
-                                                input#newItemPrice.form-control(type='number', name='price', size=20)
+                                                    input#newItemPrice.form-control(type='number', name='price', size=20)
                                     a( id='addNew') Add New Menu Item
-                            button#newBtn.btn.btn-default(type='submit') New Restaurant
+                            button#newBtn.btn.btn-primary.pull-right(type='submit') New Restaurant
 include footer
 
 script(src='/public/javascripts/editNewItem.js')
