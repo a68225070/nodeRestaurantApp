@@ -29,7 +29,6 @@ link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
             strong Votes
         ul.list-unstyled.list-group
             each v in votes
-
                     li.list-group-item.vote-list.scaled(data-name='#{v[0]}') #{v[0]}
                         span.pull-right #{v[1]}
         button.btn.btn-primary.pull-right Submit

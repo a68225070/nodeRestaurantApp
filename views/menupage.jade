@@ -18,21 +18,21 @@ head
       .navbar-collapse.collapse.navbar-responsive-collapse
         ul.nav.navbar-nav
           li
-            a(href='#') Dashboard
+            a(href='adminSelect') Dashboard
           li
-            a(href='#') Voting
+            a(href='/restaurantListings') Voting
           li.active
-            a(href='#') Order
+            a(href='/menupage') Order
           li
-            a(href='#') History
+            a(href='/orderHistory') History
           li
-            a(href='form.html') User Management
+            a(href='/adduser') User Management
           li
-            a(href='#') Restaurant Management
+            a(href='/editRest') Restaurant Management
           li#admin
         ul.nav.navbar-nav.navbar-right
           li
-            a#signOut(href='#') Sign Out
+            a#signOut(href='/signout') Sign Out
     .row
       .list-group.col-md-6.col-md-offset-3
         each item in data
