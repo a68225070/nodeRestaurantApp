@@ -14,20 +14,20 @@ include userNavbar
                                     | #{item.name}
                         div(id=item._id).panel-collapse.collapse
                             .panel-body
-                                form(role='form' method='POST' action='/deleteuser')
+                                div(role='form')
                                     .col-md-10.col-md-offset-1
                                         .form-group
                                             label(for='newUser') Edit User Name
-                                            input#newUser.form-control(type='text', value=item.name)
+                                            input.userName.form-control(type='text', value=item.name)
                                         .form-group
                                             label(for='restAddress') Edit E-mail
-                                            input#restAddress.form-control(type='text', value=item.email)
+                                            input.email.form-control(type='text', value=item.email)
                                         .form-group
                                             label(for='restPhone') Change Password
-                                            input#restPhone.form-control(type='text', value=item.password)
+                                            input.password.form-control(type='text', value=item.password)
                                         .form-group
                                             label(for='restPermissions') Change Permissions
-                                            select#newUserPassword.form-control(type='password', name='permissions', placeholder='Password')
+                                            select.permissions.form-control(type='password', name='permissions', placeholder='Password')
                                                 option(value='admin') Admin
                                                 option(value='user') User
                                     //delete this later
@@ -39,8 +39,8 @@ include userNavbar
                                     //            input#menuItem.form-control(type='text', value=i.itemName)
                                     //            label(for='itemPrice') Price
                                     //            input#itemPrice.form-control(type='number', value=i.price)
-                                    button.btn.btn-default(type='submit' action='/updateuser' method='POST' ) Update User
-                                    button.btn.btn-default(type='submit' action='/deleteuser' method='POST') Delete User
+                                    button.btn.btn-primary.update-user Update User
+                                    button.btn.btn-danger.delete-user.pull-right Delete User
 
         form.col-md-6(role='form', method='POST', action='/adduser')
             .form-group
@@ -57,5 +57,5 @@ include userNavbar
                 select#newUserPassword.form-control(type='password', name='permissions', placeholder='Password')
                     option(value='admin') Admin
                     option(value='user') User
-            button.btn.btn-default.pull-right(type='submit') Create user
+            button.btn.btn-primary.pull-right(type='submit') Create user
 

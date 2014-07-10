@@ -50,7 +50,7 @@ var selectedRestaurant = require('./routes/selectedRestaurant');
 var submitOrder = require('./routes/submitOrder');
 var deleteUser = require('./routes/deleteuser');
 var finalsubmit = require('./routes/finalorder');
-
+var updateUser = require('./routes/updateuser');
 
 
 //app.get('/', function(req, res){
@@ -93,6 +93,7 @@ app.use('/finalsubmit', finalsubmit);
 //     err.status = 404;
 //     next(err);
 // });
+app.use('/updateuser', updateUser);
 
 
 app.use(session({
