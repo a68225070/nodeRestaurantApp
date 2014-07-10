@@ -4,6 +4,8 @@ head
     meta(charset='UTF-8')
     title Menu
     link(rel='stylesheet', type='text/css', href='public/stylesheets/bootstrap.css')
+    script(src='http://code.jquery.com/jquery-1.11.0.min.js')
+    script(src='public/javascripts/menupage.js')
     link(rel='icon', type='image/ico', href='public/images/cross.ico')
   body
     .navbar.navbar-default
@@ -34,13 +36,13 @@ head
     .row
       .list-group.col-md-6.col-md-offset-3
         each item in data
-          a.list-group-item.disabled(href='#') #{item.name}
+          a.name.list-group-item.disabled(href='#') #{item.name}
           each i in item.items
-            a.list-group-item(href='#') #{i.itemName}
+            a.list-group-item.item(href='#') #{i.itemName}
                 span.pull-right.price $#{i.price}
     .row
-      textarea.col-md-6.col-md-offset-3(input-type='text', rows='3', placeholder='Special Requests')
-    button.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px') Submit
+      textarea.col-md-6.col-md-offset-3#txt_name(input-type='text', rows='3', placeholder='Special Requests')
+    button.submit.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px') Submit
     img#icon(src='public/images/cross.ico')
     #wrap
       #main.container.clear-top
