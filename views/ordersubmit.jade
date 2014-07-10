@@ -2,11 +2,16 @@ include layout
 include userNavbar
 
 .row.clearfix
-    .col-md-5.column.col-md-offset-1
+    .col-md-8.column.col-md-offset-2
         h3
             strong Orders
         ul.list-unstyled.list-group
             //each loop to iterate through orders
             each d in data
-                li #{UserName} #{menuItem} #{price} #{extras}  
+                li.list-group-item
+                    span #{d.UserName}
+                    span.col-md-offset-1.col-md-3 #{d.menuItem}
+                    span.col-md-offset-1 $#{d.price}
+                    span.col-md-offset-1 #{d.extras}
+                    span.pull-right.x x
 include footer
