@@ -15,18 +15,16 @@ router.post('/', function(req, res){
             console.log("Err: " + err);
         }
         if(docs) {
-            console.log(docs);
             for (var i = 0; i < docs.length; i++) {
                 if (docs[i].uid == req.cookies['connect.sid']) {
-                    thisUser = docs[i];
-                    console.log(docs);
+                    thisUser = docs[i]['name'];
+                    console.log('thisUser: ' + thisUser);
                 }
             }
             var restName = req.body.restName;
             var menuItems = req.body.menuItem;
             var prices = req.body.prices;
             var extras = req.body.extra;
-            console.log(restName);
             for(var x = 0; x < menuItems.length; x++){
                 var o = new order({
                     restName: restName,

@@ -6,7 +6,6 @@ $( document ).ready(function() {
         var itemName = selected.find('.itemName').text();
         var price = selected.find('.price').text();
         price = price.replace('$','');
-        alert(price);
 		if(selected.hasClass('yellow')){
 			selected.css('background-color', 'white');
 			selected.removeClass('yellow');
