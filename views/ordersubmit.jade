@@ -4,14 +4,23 @@ include userNavbar
 .row.clearfix
     .col-md-8.column.col-md-offset-2
         h3
-            strong Orders
+            strong Orders: &nbsp
+            span #{data[0].restName}
         ul.list-unstyled.list-group
             //each loop to iterate through orders
             each d in data
                 li.list-group-item
                     span #{d.UserName}
                     span.col-md-offset-1.col-md-3 #{d.menuItem}
-                    span.col-md-offset-1 $#{d.price}
+                    span.col-md-offset-1.col-md-2.price $#{d.price}
                     span.col-md-offset-1 #{d.extras}
-                    span.pull-right.x x
+                    button.btn-danger.pull-right.x x
+        .col-md-offset-4
+            strong Total: &nbsp
+            span.displayTotal
+        .col-md-offset-4
+            strong Actual Total: &nbsp
+            input.actualTotal(type='number', value='0')
+        .col-md-offset-11
+            button.btn-success.submit Submit
 include footer
