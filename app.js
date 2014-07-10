@@ -14,6 +14,8 @@ var app = express();
 
 
 mongoose.connect('mongodb://localhost:27017/restaurants');
+// new database from mongohq
+//mongoose.connect('mongodb://admin:codinghouse@kahana.mongohq.com:10097/app27253116');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +46,7 @@ var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
 
+
 //app.get('/', function(req, res){
 //    if(req.cookies.beenHere == 'yes'){
 //        var it = req.sessionID;
@@ -70,6 +73,7 @@ app.use('/adduser', addUser);
 //app.use('/editUser', editUser);
 app.use('/editRest', editRest);
 app.use('/resetTimer', resetTimer);
+app.use('/aftervote', voting);
 //app.use('admin-select', voting);
 
 
@@ -88,9 +92,9 @@ app.use(session({
         collection: 'sessions',
         host: 'localhost',
         port: 27017
-    })
+    }),
+    cookie: {maxAge: 900000}
 }));
-
 
 // load all files in models dir
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {
