@@ -46,6 +46,8 @@ var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
 var adminSelect = require('./routes/adminSelect');
+var selectedRestaurant = require('./routes/selectedRestaurant');
+
 
 
 //app.get('/', function(req, res){
@@ -75,8 +77,10 @@ app.use('/adduser', addUser);
 app.use('/editRest', editRest);
 app.use('/resetTimer', resetTimer);
 app.use('/aftervote', voting);
-app.use('/adminSelect', adminSelect);
-
+app.use('/adminSelect/', adminSelect);
+app.use('/adminSelect/:id', adminSelect);
+app.use('/submitRestaurant/:id', menuselect);
+app.use('/selectedRestaurant', selectedRestaurant);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

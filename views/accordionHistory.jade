@@ -1,5 +1,6 @@
 include layout
 include userNavbar
+link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
 
 .row.clearfix
     .col-md-6.column
@@ -25,11 +26,12 @@ include userNavbar
 
     .col-md-6.column
         h3
-            strong Details
+            strong Votes
         ul.list-unstyled.list-group
             each v in votes
-                li.list-group-item.scaled #{v[0]}
-                    span.pull-right #{v[1]}
 
+                    li.list-group-item.vote-list.scaled(data-name='#{v[0]}') #{v[0]}
+                        span.pull-right #{v[1]}
+        button.btn.btn-primary.pull-right Submit
 
 include footer
