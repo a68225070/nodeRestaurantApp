@@ -6,3 +6,37 @@
 .highlight{
     background-color: black;
 }
+/*body.index{*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*background: #f8f7e5 url(../images/food.jpg) no-repeat center top;*/
+
+    /*width: 100%;*/
+    /*display: cover;*/
+/*}*/
+
+.background-image{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index:-1;
+    top:-5px;
+    display: block;
+    background-image: url(../images/food2.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-color: black;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+    opacity: 0.4;
+}
+.jumbotron{
+    background-color: white;
+    opacity: 0.6;
+    margin-top:10%;
+}

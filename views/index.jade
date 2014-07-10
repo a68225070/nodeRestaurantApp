@@ -4,10 +4,11 @@ html(lang='en')
     meta(charset='UTF-8')
     title Login
     link(rel='stylesheet', type='text/css', href='/public/stylesheets/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
     script(type='text/javascript', src='https://cdn.firebase.com/js/simple-login/1.6.1/firebase-simple-login.js')
     script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.17/firebase.js')
     link(rel='icon', type='image/ico', href='images/ware.ico')
-  body
+  body.index
     nav.navbar.navbar-default(role='navigation')
       form.form-inline.pull-right(role='form', method='POST' action='/authenticate')
         .form-group
@@ -21,10 +22,9 @@ html(lang='en')
             input(type='checkbox', color='white')
             | Remember me
         button.btn.btn-default.form-control(type='submit') Sign in
-    img#food.img-responsive.center-block(src='public/images/food.png')
-    #wrap
-      #main.container.clear-top
-    footer.footer
+    div.background-image
+    div.jumbotron
+      include footer
     script(src='http://code.jquery.com/jquery.js')
     script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
     script(src='js/authlogin.js')
