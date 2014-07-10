@@ -21,7 +21,7 @@ $( document ).ready(function() {
 	  		type: "POST",
 	  		url: "/submitdata",
 	  		data: {restName: name, menuItem: items, extra: txt}
-		});;
+		});
 	});
 });
 

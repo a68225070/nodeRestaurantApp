@@ -18,28 +18,30 @@ head
       .navbar-collapse.collapse.navbar-responsive-collapse
         ul.nav.navbar-nav
           li
-            a(href='#') Dashboard
+            a(href='adminSelect') Dashboard
           li
-            a(href='#') Voting
+            a(href='/restaurantListings') Voting
           li.active
-            a(href='#') Order
+            a(href='/menupage') Order
           li
-            a(href='#') History
+            a(href='/orderHistory') History
           li
-            a(href='form.html') User Management
+            a(href='/adduser') User Management
           li
-            a(href='#') Restaurant Management
+            a(href='/editRest') Restaurant Management
           li#admin
         ul.nav.navbar-nav.navbar-right
           li
-            a#signOut(href='#') Sign Out
+            a#signOut(href='/signout') Sign Out
     .row
       .list-group.col-md-6.col-md-offset-3
         each item in data
           a.name.list-group-item.disabled(href='#') #{item.name}
-          each i in item.items
-            a.list-group-item.item(href='#') #{i.itemName}
-                span.pull-right.price $#{i.price}
+          each d in data2
+            if d.name == item.name
+              each x in d.items
+                a.list-group-item.item(href='#') #{x.itemName}
+                    span.pull-right.price $#{x.price}
     .row
       textarea.col-md-6.col-md-offset-3#txt_name(input-type='text', rows='3', placeholder='Special Requests')
     button.submit.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px') Submit

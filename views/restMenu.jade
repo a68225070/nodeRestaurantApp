@@ -2,7 +2,7 @@ include layout
 include userNavbar
 include vote
 .row.clearfix
-    .col-md-6.column
+    .col-md-5.column.col-md-offset-1
         h3
             strong Restaurants
         ul.list-unstyled.list-group
@@ -11,7 +11,7 @@ include vote
                 a.restaurant-name(href='/restaurantListings/#{d.name}')
                     li#rest.restaurant.list-group-item.scaled=d.name
 
-    .col-md-6.column
+    .col-md-5.column
         h3
             strong Menu
         ul.list-unstyled.list-group
@@ -21,9 +21,9 @@ include vote
                     each d in i.items
                         li#rest.menuItem.list-group-item.scaled= d.itemName
                             span.pull-right.price $#{d.price}
-.row
-    .col-md-12
-        button#submitButton.btn.btn-primary.pull-right Submit
+                    .row
+                        .col-md-12
+                            button#submitButton.btn.btn-primary.col-md-offset-10 Submit
 
 include footer
     h6#restaurant-name.hide #{name}

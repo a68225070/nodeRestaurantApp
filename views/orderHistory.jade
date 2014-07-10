@@ -1,0 +1,34 @@
+include layout
+include userNavbar
+link(rel='stylesheet', type='text/css', href='/public/stylesheets/style.css')
+.row.clearfix
+    .col-md-6.column
+        h3
+            strong Order
+        ul.list-unstyled.list-group
+            //each loop to iterate through order list
+            each d in data
+                //on click putt the id in the url and change routes
+                a.restaurant-name(href='/orderHistory/#{d._id}')
+                    li.list-group-item.scaled #{d.restName} - $#{d.price} - #{d.date}
+    //.col-md-6.column
+    //    h3
+    //        strong Details
+    //    ul.list-unstyled.list-group
+    //        each i in data
+    //            //if order id matches the one in the url display its items
+    //            if i._id == id
+    //                each d in i.order
+    //                    li.list-group-item.scaled #{d.item} - #{d.userName}
+    //                        span.pull-right.price $#{d.cost}
+    .col-md-6.column
+        h3
+            strong Details
+        ul.list-unstyled.list-group
+            each i in data
+                //if order id matches the one in the url display its items
+                if i._id == id
+                    each d in i.order
+                        li.list-group-item.scaled #{d.item} - #{d.userName}
+                            span.pull-right.price $#{d.cost}
+include footer
