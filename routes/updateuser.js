@@ -19,7 +19,7 @@ router.post('/', function(req, res){
 
         }
     });
-    console.log("WHAT THE FUCUCUCJCKC");
+
     res.redirect('/adduser');
 });
 
