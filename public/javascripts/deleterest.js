@@ -37,6 +37,5 @@ $(document).ready(function(){
             url: "/updaterest",
             data: {name: name, address: address, phone: phone, items: itemArr}
         });
-        setTimeout(function(){window.location.href = '/editrest'}, 200);
     });
 });
