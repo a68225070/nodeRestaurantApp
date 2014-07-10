@@ -15,4 +15,9 @@ router.get('/SelectRest', function(req, res) {
     res.render('admin-select');
 });
 
+//shows main admin page
+router.get('/admin', function(req, res) {
+    res.render('admin');
+});
+
 module.exports = router;
