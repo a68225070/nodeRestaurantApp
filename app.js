@@ -51,6 +51,8 @@ var submitOrder = require('./routes/submitOrder');
 var deleteUser = require('./routes/deleteuser');
 var finalsubmit = require('./routes/finalorder');
 var updateUser = require('./routes/updateuser');
+var deleteRest = require('./routes/deleterest');
+var updateRest = require('./routes/updateRest');
 
 
 //app.get('/', function(req, res){
@@ -87,14 +89,9 @@ app.use('/selectedRestaurant', selectedRestaurant);
 app.use('/submitOrderData', submitOrder);
 app.use('/deleteuser', deleteUser);
 app.use('/finalsubmit', finalsubmit);
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//     var err = new Error('Not Found');
-//     err.status = 404;
-//     next(err);
-// });
 app.use('/updateuser', updateUser);
-
+app.use('/deleterest', deleteRest);
+app.use('/updaterest', updateRest);
 
 app.use(session({
     secret: 'asdfghjkl',
