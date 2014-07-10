@@ -8,22 +8,5 @@ include userNavbar
         ul.list-unstyled.list-group
             //each loop to iterate through orders
             each d in data
-                li(/orderHistory/#{d.name}')
-                    li.list-group-item.scaled=d.name
-
-    .col-md-5.column
-        h3
-            strong User Orders
-        ul.list-unstyled.list-group
-            //each loop to iterate through orders
-            each i in data
-                if i.UserName == UserName
-                        li menuItem.list-group-item.scaled= d.menuItem
-                            span.pull-right.price $#{d.price}
-                    .row
-                        .col-md-12
-                            button#submitButton.btn.btn-primary.col-md-offset-10 Submit
-
+                li #{UserName} #{menuItem} #{price} #{extras}  
 include footer
-
-
