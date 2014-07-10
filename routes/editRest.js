@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var model = require('../models/restaurants.js');
 var rests = model.model;
-var r = new rests;
+
 
 
 
@@ -13,7 +13,7 @@ router.get('/', function(req, res){
         if(err){
             console.log('Error: ' + err);
         } else if(docs) {
-            res.render('editRest', {data: docs});
+            res.render('editRest', {data: docs, scripts: ['/public/javascripts/deleterest.js']});
         } else {
             console.log('Query returned no results.');
         }
@@ -23,22 +23,30 @@ router.get('/', function(req, res){
 
 
 router.post('/', function(req, res) {
-    //console.log(req.body);
 
+    var name = req.body.name;
+    var address = req.body.address;
+    var phone = req.body.phone;
+    var itemLength = req.body.itemName.length;
+
+    //loop through to find item names and prices and put them into itemArr
+    var itemArr = [];
+    for(var i=0; i<itemLength; i++){
+        var currItem = req.body.itemName[i];
+        var currPrice = req.body.price[i];
+        itemArr.push({itemName: currItem,price: currPrice});
+    }
+    //assign values to restaurant schema for insertion
     var restaurants = new rests({
-        name: req.body['item.name'],
-        items: [
-            {itemName: req.body['i.itemName'], price: req.body['i.price']}
-        ],
-        address: req.body['item.address'],
-        phone: req.body['item.phone']
-
-
+        name: name,
+        items: itemArr,
+        address: address,
+        phone: phone
     });
-    //console.log('show r: ' + restaurants);
-    console.log('the value of restName = ' + req.body['item.name']);
-    console.log('i.price = ' + req.body['i.price']);
-    restaurants.update();
+    //save restaurant to db, collection: restaurants
+    restaurants.save();
+    //redirect to same page so user sees restaurant added
+    res.redirect('/editRest');
 });
 
 module.exports = router;

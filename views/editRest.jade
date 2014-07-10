@@ -11,7 +11,7 @@ include userNavbar
                             | #{item.name}
                 div(id=item._id).panel-collapse.collapse
                     .panel-body
-                        form(role='form' method='POST' action='/editRest')
+                        form
                             .col-md-6
                                 .form-group
                                     label(for='restName') Change Restaurant Name
@@ -25,15 +25,15 @@ include userNavbar
                             .col-md-6
                                 strong Update the Menu
                                 each i in item.items
-                                    .form-group
+                                    .form-group.rest-items
                                         label(for='menuItem') Menu
                                         input#menuItem.form-control(type='text', value=i.itemName, size=20, name=['i.itemName'])
                                         label(for='itemPrice') Price
                                         input#itemPrice.form-control(type='number', value=i.price, size=20, name=['i.price'])
                                 .menuItems
-                                a( id='addNewItem') Add New Menu Item
-                            button#updateBtn.btn.btn-default(type='submit') Update Restaurant
-                            button#deleteBtn.btn.btn-default(type='submit') Delete Restaurant
+                                a(id='addNewItem') Add New Menu Item
+                        button.btn.btn-primary.update-restaurant Update Restaurant
+                        button.btn.btn-danger.pull-right.delete-restaurant Delete Restaurant
 
     #accordion2.panel-group
             .panel.panel-default
