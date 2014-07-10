@@ -11,7 +11,7 @@ router.get('/', function(req, res){
         if(err){
             console.log('Error: ' + err);
         } else if(docs) {
-            res.render('accordionHistory', {data: docs});
+            res.render('orderHistory', {data: docs});
         } else {
             console.log('Query returned no results.');
         }
@@ -29,7 +29,7 @@ router.get('/:id', function(req, res){
             console.log('Error: ' + err);
         } else if(docs) {
             //console.log(docs);
-            res.render('accordionHistory', {data: docs, id: id, scripts: []});
+            res.render('orderHistory', {data: docs, id: id, scripts: []});
         } else {
             console.log('Query returned no results.');
         }
