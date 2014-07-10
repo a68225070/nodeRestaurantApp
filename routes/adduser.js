@@ -1,10 +1,22 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var model = require('../models/users.js');
+var rests = model.model;
 
 //get addUser
 router.get('/', function(req, res) {
-    res.render('addUser');
+    rests.find({}, function(err, docs){
+        if (err){
+            throw err;
+        }else
+        {
+            //find every user in user model
+            res.render('addUser', { data: docs});
+        }
+    })
+
+
 });
 
 router.post('/', function(req, res){

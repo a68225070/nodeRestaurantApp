@@ -14,6 +14,8 @@ var app = express();
 
 
 mongoose.connect('mongodb://localhost:27017/restaurants');
+// new database from mongohq
+//mongoose.connect('mongodb://admin:codinghouse@kahana.mongohq.com:10097/app27253116');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

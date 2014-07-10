@@ -1,10 +1,14 @@
-include layout
-include userNavbar
-.container
-    .row
-        .col-md-6
+doctype
+html
+    head(lang='en')
+        meta(charset='UTF-8')
+        title
+        script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js')
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', type='text/css')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    body
+        .container
             #accordion1.panel-group
-                // each loop doesn't work
                 each item in data
                     -var x = '#' + item._id
                     .panel.panel-default
@@ -15,16 +19,16 @@ include userNavbar
                         div(id=item._id).panel-collapse.collapse
                             .panel-body
                                 div(role='form')
-                                    .col-md-10.col-md-offset-1
+                                    .col-md-6
                                         .form-group
                                             label(for='newUser') Edit User Name
                                             input#newUser.form-control(type='text', value=item.name)
                                         .form-group
                                             label(for='restAddress') Edit E-mail
-                                            input#restAddress.form-control(type='text', value=item.email)
+                                            input#restAddress.form-control(type='text', value=item.address)
                                         .form-group
                                             label(for='restPhone') Change Password
-                                            input#restPhone.form-control(type='text', value=item.password)
+                                            input#restPhone.form-control(type='text', value=item.phone)
                                     //delete this later
                                     //.col-md-6
                                     //    strong Update the Menu
@@ -34,18 +38,5 @@ include userNavbar
                                     //            input#menuItem.form-control(type='text', value=i.itemName)
                                     //            label(for='itemPrice') Price
                                     //            input#itemPrice.form-control(type='number', value=i.price)
-                                    button.btn.btn-default(type='update') Update User
-                                    button.btn.btn-default(type='delete') Delete User
-
-        form.col-md-6(role='form', method='POST', action='/adduser')
-            .form-group
-                label(for='newUser') Enter Full Name
-                input#newUser.form-control(type='text', name='name', placeholder='John Doe')
-            .form-group
-                label(for='newUserEmail') Email address
-                input#newUserEmail.form-control(type='email', name='email', placeholder='example@gmail.com')
-            .form-group
-                label(for='newUserPassword') Password
-                input#newUserPassword.form-control(type='password', name='password', placeholder='Password')
-            button.btn.btn-default.pull-right(type='submit') Create user
-
+                                    button.btn.btn-default(type='submit') Update Restaurant
+                                    button.btn.btn-default(type='submit') Delete Restaurant
