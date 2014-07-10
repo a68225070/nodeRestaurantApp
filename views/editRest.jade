@@ -1,11 +1,7 @@
 include layout
 include userNavbar
 .container
-<<<<<<< HEAD
     #accordion1.panel-group
-=======
-    #accordion1.panel-group.col-md-12
->>>>>>> aleks
         each item in data
             -var x = '#' + item._id
             .panel.panel-default
@@ -15,19 +11,6 @@ include userNavbar
                             | #{item.name}
                 div(id=item._id).panel-collapse.collapse
                     .panel-body
-<<<<<<< HEAD
-                        div(role='form')
-                            .col-md-6
-                                .form-group
-                                    label(for='newUser') Change Restaurant Name
-                                    input#newUser.form-control(type='text', value=item.name)
-                                .form-group
-                                    label(for='restAddress') Change Address
-                                    input#restAddress.form-control(type='text', value=item.address)
-                                .form-group
-                                    label(for='restPhone') Update Phone Number
-                                    input#restPhone.form-control(type='text', value=item.phone)
-=======
                         form(role='form' method='POST' action='/editRest')
                             .col-md-6
                                 .form-group
@@ -39,28 +22,20 @@ include userNavbar
                                 .form-group
                                     label(for='restPhone') Update Phone Number
                                     input#restPhone.form-control(type='text', value=item.phone, name='item.phone')
->>>>>>> aleks
                             .col-md-6
                                 strong Update the Menu
                                 each i in item.items
-                                    .form-group.form-inline
+                                    .form-group
                                         label(for='menuItem') Menu
-<<<<<<< HEAD
-                                        input#menuItem.form-control(type='text', value=i.itemName)
+                                        input#menuItem.form-control(type='text', value=i.itemName, size=20, name=['i.itemName'])
                                         label(for='itemPrice') Price
-                                        input#itemPrice.form-control(type='number', value=i.price)
-                            button.btn.btn-default(type='submit') Update Restaurant
-                            button.btn.btn-default(type='submit') Delete Restaurant
-=======
-                                        input#menuItem.form-control(type='text', value=i.itemName, name='i.itemName')
-                                        label(for='itemPrice') Price
-                                        input#itemPrice.form-control(type='number', value=i.price, name='i.price', min=0)
+                                        input#itemPrice.form-control(type='number', value=i.price, size=20, name=['i.price'])
                                 .menuItems
-                                button.btn.btn-default(id='addNewItem') Add New Item
+                                a( id='addNewItem') Add New Menu Item
                             button#updateBtn.btn.btn-default(type='submit') Update Restaurant
                             button#deleteBtn.btn.btn-default(type='submit') Delete Restaurant
 
-    #accordion2.panel-group.col-md-12
+    #accordion2.panel-group
             .panel.panel-default
                 .panel-heading
                     h3.panel-title.text-center
@@ -92,4 +67,3 @@ include userNavbar
 include footer
 
 script(src='/public/javascripts/editNewItem.js')
->>>>>>> aleks
