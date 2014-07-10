@@ -10,4 +10,4 @@ var orderSubmission = new Schema({
 });
 
 //Export the model so it can be referenced in the routes.
-exports.model = mongoose.model('orderSubmission', orderSubmissionSchema, 'orderSubmission');
+exports.model = mongoose.model('orderSubmission', orderSubmission, 'orderSubmission');
