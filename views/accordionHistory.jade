@@ -12,15 +12,24 @@ include userNavbar
                 a.restaurant-name(href='/orderHistory/#{d._id}')
                     li.list-group-item.scaled #{d.restName} - $#{d.price} - #{d.date}
 
+    //.col-md-6.column
+    //    h3
+    //        strong Details
+    //    ul.list-unstyled.list-group
+    //        each i in data
+    //            //if order id matches the one in the url display its items
+    //            if i._id == id
+    //                each d in i.order
+    //                    li.list-group-item.scaled #{d.item} - #{d.userName}
+    //                        span.pull-right.price $#{d.cost}
+
     .col-md-6.column
         h3
             strong Details
         ul.list-unstyled.list-group
-            each i in data
-                //if order id matches the one in the url display its items
-                if i._id == id
-                    each d in i.order
-                        li.list-group-item.scaled #{d.item} - #{d.userName}
-                            span.pull-right.price $#{d.cost}
+            each v in votes
+                li.list-group-item.scaled #{v[0]}
+                    span.pull-right #{v[1]}
+
 
 include footer
