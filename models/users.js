@@ -3,9 +3,7 @@ var Schema = mongoose.Schema;
 
 var usersSchema = new Schema({
     email: String,
-	password: String,
-    vote_count: Number,
-    vote: []
+	password: String
 });
 
 exports.model = mongoose.model('users', usersSchema, 'users');

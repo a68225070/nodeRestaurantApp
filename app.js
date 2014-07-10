@@ -23,7 +23,7 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser('passphrase'));
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -42,7 +42,17 @@ var menuselect = require('./routes/menupage');
 var addUser = require('./routes/adduser');
 var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
+var resetTimer = require('./routes/resetTimer');
 
+//app.get('/', function(req, res){
+//    if(req.cookies.beenHere == 'yes'){
+//        var it = req.sessionID;
+//        console.log(it);
+//    } else {
+//        res.cookie('beenHere', 'yes');
+//        res.send('first time')
+//    }
+//});
 
 app.use('/', routes);
 app.use('/users', users); // not used
@@ -59,6 +69,7 @@ app.use('/menupage', menuselect);
 app.use('/adduser', addUser);
 //app.use('/editUser', editUser);
 app.use('/editRest', editRest);
+app.use('/resetTimer', resetTimer);
 //app.use('admin-select', voting);
 
 
@@ -68,20 +79,16 @@ app.use('/editRest', editRest);
 //     err.status = 404;
 //     next(err);
 // });
-//app.get('/ok', function(req, res){
-//    req.session.name = req.session.name || new Date().toUTCString();
-//    res.send(req.sessionID);
-//});
+
 
 app.use(session({
     secret: 'asdfghjkl',
     store: new MongoStore({
         db: 'restaurants',
-        collection: 'users',
+        collection: 'sessions',
         host: 'localhost',
         port: 27017
-    }),
-
+    })
 }));
 
 

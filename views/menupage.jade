@@ -34,18 +34,13 @@ head
     .row
       .list-group.col-md-6.col-md-offset-3
         each item in data
-          a.list-group-item.disabled(href='#') #{item.name} BAM
-        a.list-group-item(href='#') Dapibus ac facilisis in
-        a.list-group-item(href='#') Morbi leo risus
-        a.list-group-item(href='#') Porta ac consectetur ac
-        a.list-group-item(href='#') Vestibulum at eros
-        a.list-group-item(href='#') Dapibus ac facilisis in
-        a.list-group-item(href='#') Morbi leo risus
-        a.list-group-item(href='#') Porta ac consectetur ac
-        a.list-group-item(href='#') Vestibulum at eros
+          a.list-group-item.disabled(href='#') #{item.name}
+          each i in item.items
+            a.list-group-item(href='#') #{i.itemName}
+                span.pull-right.price $#{i.price}
     .row
       textarea.col-md-6.col-md-offset-3(input-type='text', rows='3', placeholder='Special Requests')
-    button.btn.btn-success.pull-right(type='button') Submit
+    button.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px') Submit
     img#icon(src='public/images/cross.ico')
     #wrap
       #main.container.clear-top

@@ -5,7 +5,6 @@ var model = require('../models/selectedRest.js');
 var rests = model.model;
 
 
-
 router.get('/', function(req, res){
     //This query returns all data from the restaurant table into a variable docs
     rests.find({}, function (err, docs) {
