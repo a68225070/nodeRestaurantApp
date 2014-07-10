@@ -1,5 +1,7 @@
 $( document ).ready(function() {
-
+    if($('#thisUserHasVoted').text() == 'true'){
+        $('#submitButton').addClass('disabled');
+    }
     var vote = '';
 
     $('li#rests').on('click', function(){
@@ -11,8 +13,16 @@ $( document ).ready(function() {
         selected.css('background-color', '#3fb618')
     });
     $('#submitButton').on('click', function(){
-        var name = $('#restaurant-name').text();
-        console.log(name);
+        var restaurantName = $('#restaurant-name').text();
+        var email = $('#thisUserEmail').text();
+
+        $.ajax({
+            type: "POST",
+            url: '/aftervote',
+            dataType: 'json',
+            data: {restaurant: restaurantName, email: email}
+        });
+
         $('#submitButton').addClass('disabled');
     });
 

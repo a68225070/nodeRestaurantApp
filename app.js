@@ -44,6 +44,7 @@ var editUser = require('./routes/editUser');
 var editRest = require('./routes/editRest');
 var resetTimer = require('./routes/resetTimer');
 
+
 //app.get('/', function(req, res){
 //    if(req.cookies.beenHere == 'yes'){
 //        var it = req.sessionID;
@@ -70,6 +71,7 @@ app.use('/adduser', addUser);
 //app.use('/editUser', editUser);
 app.use('/editRest', editRest);
 app.use('/resetTimer', resetTimer);
+app.use('/aftervote', voting);
 //app.use('admin-select', voting);
 
 
@@ -91,17 +93,6 @@ app.use(session({
     }),
     cookie: {maxAge: 900000}
 }));
-app.use(function(req, res, next){
-  var sess = req.session;
-    if(sess.views){
-        sess.views++;
-        console.log('views:' + sess.views);
-        res.end();
-    } else{
-        sess.views = 1;
-        console.log('welcome to demo, refresh');
-    }
-})
 
 // load all files in models dir
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {

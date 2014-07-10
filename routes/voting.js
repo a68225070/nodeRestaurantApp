@@ -8,11 +8,25 @@ var connect = require('connect');
 var rests = model.model;
 var timerModel = require('../models/timer.js');
 var timer = timerModel.model;
+var userModel = require('../models/users.js');
+var user = userModel.model;
+var votesModel = require('../models/votes.js');
+var votes = votesModel.model;
 
 
+var thisUser = '';
 router.get('/', function(req, res){
-    //this still doesn't work
-    console.log(req.cookies['connect.sid']);
+
+
+    //get user information by matching current sessionID to user database
+    user.find({}, function(err, docs){
+        for(i=0; i<docs.length; i++){
+            if(docs[i].uid == req.cookies['connect.sid']){
+                thisUser = docs[i];
+                console.log(thisUser);
+            }
+        }
+    })
 
     //This query returns all data from the restaurant table into a variable docs
     var time = 0;
@@ -28,6 +42,7 @@ router.get('/', function(req, res){
                     {
                         data: docs,
                         time: time,
+                        thisUser: thisUser,
                         scripts: [
                             '/public/javascripts/voting.js',
                             '/public/javascripts/flipclock.js'
@@ -57,6 +72,7 @@ router.get('/:id', function(req, res){
                         data: docs,
                         name: id,
                         time: time,
+                        thisUser: thisUser,
                         scripts: [
                             '/public/javascripts/voting.js',
                             '/public/javascripts/flipclock.js'
@@ -67,5 +83,15 @@ router.get('/:id', function(req, res){
         });
     });
 });
+//after user has voted, save their votes and email to votes collection
+router.post('/', function(req, res){
+
+    var v = new votes({
+        restaurant: req.body.restaurant,
+        email: req.body.email
+    })
+    
+   v.save();
+})
 
 module.exports = router;
