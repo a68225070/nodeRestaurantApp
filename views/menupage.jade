@@ -21,7 +21,7 @@ head
             a(href='adminSelect') Dashboard
           li
             a(href='/restaurantListings') Voting
-          li.active
+          li.activec
             a(href='/menupage') Order
           li
             a(href='/orderHistory') History
@@ -46,7 +46,17 @@ head
                     span.pull-right.price $#{x.price}
     .row
       textarea.col-md-6.col-md-offset-3#txt_name(input-type='text', rows='3', placeholder='Special Requests')
-    button.submit.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px') Submit
+    button.submit.btn.btn-success.col-md-offset-8(type='button', style='margin-top: 20px' data-toggle='modal', data-target='#myModal') Submit
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal')
+                        span(aria-hidden='true') ×
+                        span.sr-only Close
+                    h4#myModalLabel.modal-title Thank you for ordering!
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
     img#icon(src='public/images/cross.ico')
     #wrap
       #main.container.clear-top
