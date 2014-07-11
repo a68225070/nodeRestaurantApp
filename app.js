@@ -13,9 +13,9 @@ var MongoStore = require('connect-mongo')(session);
 var app = express();
 
 
-mongoose.connect('mongodb://localhost:27017/restaurants');
+//mongoose.connect('mongodb://localhost:27017/restaurants');
 // new database from mongohq
-//mongoose.connect('mongodb://admin:codinghouse@kahana.mongohq.com:10097/app27253116');
+mongoose.connect('mongodb://admin:codinghouse@kahana.mongohq.com:10097/app27253116');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

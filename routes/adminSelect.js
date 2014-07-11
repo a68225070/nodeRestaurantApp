@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var model = require('../models/votes.js');
 var votes = model.model;
 
+
 router.get('/', function(req, res){
 
     //This query returns all data from the restaurant table into a variable docs

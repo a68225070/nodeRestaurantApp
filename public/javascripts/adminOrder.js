@@ -29,7 +29,8 @@ $( document ).ready(function() {
             var userName = $(this).find('.un').text();
             var item = $(this).find('.item').text();
             var obj = {'userName': userName, 'item': item, 'cost': price};
-            values.push(obj);
+            if(item != '')
+                values.push(obj);
             console.log(values);
         });
 
