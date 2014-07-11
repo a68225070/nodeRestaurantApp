@@ -53,6 +53,7 @@ var finalsubmit = require('./routes/finalorder');
 var updateUser = require('./routes/updateuser');
 var deleteRest = require('./routes/deleterest');
 var updateRest = require('./routes/updateRest');
+var adminPlaceOrder = require('./routes/adminPlaceOrder');
 
 
 //app.get('/', function(req, res){
@@ -92,6 +93,7 @@ app.use('/finalsubmit', finalsubmit);
 app.use('/updateuser', updateUser);
 app.use('/deleterest', deleteRest);
 app.use('/updaterest', updateRest);
+app.use('/submitFinalOrderData', adminPlaceOrder);
 
 app.use(session({
     secret: 'asdfghjkl',
