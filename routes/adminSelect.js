@@ -45,7 +45,8 @@ router.get('/', function(req, res){
             };
 
             //displays order history
-            res.render('accordionHistory', {data: docs,votes: totalArr, scripts: ['/public/javascripts/accordionHistory.js']});
+            res.render('accordionHistory', {data: docs,votes: totalArr, scripts: ['/public/javascripts/accordionHistory.js','/public/javascripts/setTime.js','/public/javascripts/flipclock.js'
+                    ]});
 
     });
 });
